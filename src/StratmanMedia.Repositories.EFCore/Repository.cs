@@ -11,6 +11,7 @@ namespace StratmanMedia.Repositories.EFCore
         where TEntity : class
     {
         protected TContext Context { get; }
+        protected DbSet<TEntity> Table => Context.Set<TEntity>();
 
         public Repository(TContext context)
         {
@@ -20,44 +21,41 @@ namespace StratmanMedia.Repositories.EFCore
         public virtual void Create(TEntity entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
-            Context.Set<TEntity>().Add(entity);
+            Table.Add(entity);
             Context.SaveChanges();
         }
 
         public virtual async Task CreateAsync(TEntity entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
-            await Context.Set<TEntity>().AddAsync(entity);
+            await Table.AddAsync(entity);
             await Context.SaveChangesAsync();
         }
 
         public virtual void Delete(TEntity entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
-            Context.Set<TEntity>().Attach(entity);
-            Context.Set<TEntity>().Remove(entity);
+            Table.Attach(entity);
+            Table.Remove(entity);
             Context.SaveChanges();
         }
 
         public virtual async Task DeleteAsync(TEntity entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
-            Context.Set<TEntity>().Attach(entity);
-            Context.Set<TEntity>().Remove(entity);
+            Table.Attach(entity);
+            Table.Remove(entity);
             await Context.SaveChangesAsync();
         }
 
         public virtual IEnumerable<TEntity> GetAll()
         {
-            return Context.Set<TEntity>().ToArray();
+            return Table.ToArray();
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await Task.Run(() =>
-            {
-                return Context.Set<TEntity>().ToArray();
-            });
+            return await Task.Run(GetAll);
         }
     }
 }
