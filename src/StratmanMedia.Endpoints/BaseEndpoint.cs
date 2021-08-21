@@ -9,7 +9,7 @@ namespace StratmanMedia.Endpoints
     {
         public static class WithRequest<TRequest>
         {
-            public abstract class WithResponse<TResponse> : ControllerBase
+            public abstract class WithResponse<TResponse> : BaseController
             {
                 public abstract Task<ActionResult<TResponse>> HandleAsync(
                     TRequest request,
@@ -17,7 +17,7 @@ namespace StratmanMedia.Endpoints
                 );
             }
 
-            public abstract class WithoutResponse : ControllerBase
+            public abstract class WithoutResponse : BaseController
             {
                 public abstract Task<ActionResult> HandleAsync(
                     TRequest request,
@@ -28,14 +28,14 @@ namespace StratmanMedia.Endpoints
 
         public static class WithoutRequest
         {
-            public abstract class WithResponse<TResponse> : ControllerBase
+            public abstract class WithResponse<TResponse> : BaseController
             {
                 public abstract Task<ActionResult<TResponse>> HandleAsync(
                     CancellationToken cancellationToken = default
                 );
             }
 
-            public abstract class WithoutResponse : ControllerBase
+            public abstract class WithoutResponse : BaseController
             {
                 public abstract Task<ActionResult> HandleAsync(
                     CancellationToken cancellationToken = default
