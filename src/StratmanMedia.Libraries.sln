@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.Enumerations"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.ResponseObjects", "StratmanMedia.ResponseObjects\StratmanMedia.ResponseObjects.csproj", "{E1ACEB7A-EBDE-4A67-96C4-6D8F2CF857A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratmanMedia.Endpoints", "StratmanMedia.Endpoints\StratmanMedia.Endpoints.csproj", "{EB6C2DF8-11AE-4839-A241-98FB28F688AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.Endpoints", "StratmanMedia.Endpoints\StratmanMedia.Endpoints.csproj", "{EB6C2DF8-11AE-4839-A241-98FB28F688AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratmanMedia.GuardClauses", "StratmanMedia.GuardClauses\StratmanMedia.GuardClauses.csproj", "{8777FFAD-4EF8-4251-ACDF-BDF03EBDF04F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{EB6C2DF8-11AE-4839-A241-98FB28F688AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB6C2DF8-11AE-4839-A241-98FB28F688AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB6C2DF8-11AE-4839-A241-98FB28F688AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8777FFAD-4EF8-4251-ACDF-BDF03EBDF04F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8777FFAD-4EF8-4251-ACDF-BDF03EBDF04F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8777FFAD-4EF8-4251-ACDF-BDF03EBDF04F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8777FFAD-4EF8-4251-ACDF-BDF03EBDF04F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
