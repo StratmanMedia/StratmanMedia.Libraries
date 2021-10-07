@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.ResponseObjec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.Endpoints", "StratmanMedia.Endpoints\StratmanMedia.Endpoints.csproj", "{EB6C2DF8-11AE-4839-A241-98FB28F688AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratmanMedia.GuardClauses", "StratmanMedia.GuardClauses\StratmanMedia.GuardClauses.csproj", "{8777FFAD-4EF8-4251-ACDF-BDF03EBDF04F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.GuardClauses", "StratmanMedia.GuardClauses\StratmanMedia.GuardClauses.csproj", "{8777FFAD-4EF8-4251-ACDF-BDF03EBDF04F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{EE709442-E77A-4C84-8CBA-522E04BECE53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
