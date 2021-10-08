@@ -1,13 +1,15 @@
-name : NuGet-CI-CD
+name : StratmanMedia.Logging-CI
 trigger:
   branches:
     include:
       - master
   paths:
     include:
-    - NuGet/*
-    exclude:
-    - NuGet/**/*.Test
+    - StratmanMedia.Logging
+    include:
+    - StratmanMedia.Logging.Contracts
+    include:
+    - StratmanMedia.Logging.DependencyInjection.Microsoft
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -35,35 +37,29 @@ stages:
       displayName: 'Restore packages'
       inputs:
         command: 'restore'
-        projects: 'NuGet/**/*.csproj'
+        projects: 'StratmanMedia.Logging.*/*.csproj'
         feedsToUse: 'select'
 
     - task: DotNetCoreCLI@2
       displayName: 'Build solution'
       inputs:
         command: 'build'
-        projects: 'NuGet/**/*.csproj'
+        projects: 'StratmanMedia.Logging.*/*.csproj'
         arguments: '-c $(BuildConfiguration) --no-restore'
 
     - task: DotNetCoreCLI@2
       displayName: Run tests
       inputs:
         command: 'test'        
-        projects: 'NuGet/**/*.Test.csproj'
+        projects: 'StratmanMedia.Logging.*.Tests/*.Tests.csproj'
         arguments: '-c $(BuildConfiguration) --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
         publishTestResults: true
-
-    - task: PublishCodeCoverageResults@1
-      displayName: 'Publish code coverage report'
-      inputs:
-        codeCoverageTool: 'Cobertura'
-        summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
     - task: DotNetCoreCLI@2
       displayName: 'Create nuget packages'
       inputs:
         command: 'pack'
-        packagesToPack: 'NuGet/**/*.csproj;!**/*.Test.csproj'
+        packagesToPack: 'StratmanMedia.Logging.*/*.csproj;!**/*.Test.csproj'
         packDirectory: '$(Build.ArtifactStagingDirectory)/packages/nuget'
         nobuild: true
         versioningScheme: 'byBuildNumber'
