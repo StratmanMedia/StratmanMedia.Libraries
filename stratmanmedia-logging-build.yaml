@@ -1,0 +1,74 @@
+name : NuGet-CI-CD
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+    - NuGet/*
+    exclude:
+    - NuGet/**/*.Test
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  BuildConfiguration: Release
+  ArtifactNuGetName: 'packages-nuget'
+
+stages:
+- stage: build
+  displayName: 'Build NuGet Package'
+  jobs:
+  - job: CI_Build
+    displayName: 'NuGet - Build, Pack and Test'    
+    steps:
+    - task: gitversion/setup@0
+      displayName: Install GitVersion
+      inputs:
+        versionSpec: '5.5.0'
+        
+    - task: gitversion/execute@0
+      displayName: Determine Version
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Restore packages'
+      inputs:
+        command: 'restore'
+        projects: 'NuGet/**/*.csproj'
+        feedsToUse: 'select'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Build solution'
+      inputs:
+        command: 'build'
+        projects: 'NuGet/**/*.csproj'
+        arguments: '-c $(BuildConfiguration) --no-restore'
+
+    - task: DotNetCoreCLI@2
+      displayName: Run tests
+      inputs:
+        command: 'test'        
+        projects: 'NuGet/**/*.Test.csproj'
+        arguments: '-c $(BuildConfiguration) --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+        publishTestResults: true
+
+    - task: PublishCodeCoverageResults@1
+      displayName: 'Publish code coverage report'
+      inputs:
+        codeCoverageTool: 'Cobertura'
+        summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Create nuget packages'
+      inputs:
+        command: 'pack'
+        packagesToPack: 'NuGet/**/*.csproj;!**/*.Test.csproj'
+        packDirectory: '$(Build.ArtifactStagingDirectory)/packages/nuget'
+        nobuild: true
+        versioningScheme: 'byBuildNumber'
+
+    - publish: '$(Build.ArtifactStagingDirectory)/packages/nuget'
+      displayName: 'Publish Artifact: $(ArtifactNuGetName)'
+      artifact: 'packages-nuget'
+      condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
