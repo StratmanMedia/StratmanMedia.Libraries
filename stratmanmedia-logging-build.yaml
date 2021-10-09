@@ -6,9 +6,7 @@ trigger:
   paths:
     include:
     - StratmanMedia.Logging
-    include:
     - StratmanMedia.Logging.Contracts
-    include:
     - StratmanMedia.Logging.DependencyInjection.Microsoft
 
 pool:

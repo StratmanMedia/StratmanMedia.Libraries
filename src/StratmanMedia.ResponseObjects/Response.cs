@@ -24,6 +24,21 @@ namespace StratmanMedia.ResponseObjects
     {
         public T Data { get; set; }
 
+        public Response()
+        {
+            Data = default;
+        }
+
+        public Response(string message) : base(message)
+        {
+            Data = default;
+        }
+
+        public Response(IEnumerable<string> messages) : base(messages)
+        {
+            Data = default;
+        }
+
         public Response(T data)
         {
             Data = data;

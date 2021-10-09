@@ -11,17 +11,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.ResponseObjec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.Endpoints", "StratmanMedia.Endpoints\StratmanMedia.Endpoints.csproj", "{EB6C2DF8-11AE-4839-A241-98FB28F688AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.GuardClauses", "StratmanMedia.GuardClauses\StratmanMedia.GuardClauses.csproj", "{8777FFAD-4EF8-4251-ACDF-BDF03EBDF04F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{EE709442-E77A-4C84-8CBA-522E04BECE53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratmanMedia.Logging.Contracts", "StratmanMedia.Logging.Contracts\StratmanMedia.Logging.Contracts.csproj", "{0A622D13-B8A3-4222-8976-AE7B5A5A8B80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.Logging.Contracts", "StratmanMedia.Logging.Contracts\StratmanMedia.Logging.Contracts.csproj", "{0A622D13-B8A3-4222-8976-AE7B5A5A8B80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratmanMedia.Logging", "StratmanMedia.Logging\StratmanMedia.Logging.csproj", "{D33EBAD3-06A7-4B7E-B58A-B92170D3E7D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.Logging", "StratmanMedia.Logging\StratmanMedia.Logging.csproj", "{D33EBAD3-06A7-4B7E-B58A-B92170D3E7D0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F854C96A-B085-48B8-8FE1-45ACB149FEB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratmanMedia.Logging.DependencyInjection.Microsoft", "StratmanMedia.Logging.DependencyInjection.Microsoft\StratmanMedia.Logging.DependencyInjection.Microsoft.csproj", "{548B700E-898F-4EA4-AE3D-62C43BE127F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.Logging.DependencyInjection.Microsoft", "StratmanMedia.Logging.DependencyInjection.Microsoft\StratmanMedia.Logging.DependencyInjection.Microsoft.csproj", "{548B700E-898F-4EA4-AE3D-62C43BE127F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Endpoints", "Endpoints", "{6B8C2ED1-5844-4194-9FF8-75BD5C08D333}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResponseObjects", "ResponseObjects", "{2146365E-C774-43B0-9CA2-A74F81A30AE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +47,6 @@ Global
 		{EB6C2DF8-11AE-4839-A241-98FB28F688AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB6C2DF8-11AE-4839-A241-98FB28F688AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB6C2DF8-11AE-4839-A241-98FB28F688AB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8777FFAD-4EF8-4251-ACDF-BDF03EBDF04F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8777FFAD-4EF8-4251-ACDF-BDF03EBDF04F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8777FFAD-4EF8-4251-ACDF-BDF03EBDF04F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8777FFAD-4EF8-4251-ACDF-BDF03EBDF04F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0A622D13-B8A3-4222-8976-AE7B5A5A8B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A622D13-B8A3-4222-8976-AE7B5A5A8B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A622D13-B8A3-4222-8976-AE7B5A5A8B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -66,6 +64,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{E1ACEB7A-EBDE-4A67-96C4-6D8F2CF857A9} = {2146365E-C774-43B0-9CA2-A74F81A30AE1}
+		{EB6C2DF8-11AE-4839-A241-98FB28F688AB} = {6B8C2ED1-5844-4194-9FF8-75BD5C08D333}
 		{0A622D13-B8A3-4222-8976-AE7B5A5A8B80} = {EE709442-E77A-4C84-8CBA-522E04BECE53}
 		{D33EBAD3-06A7-4B7E-B58A-B92170D3E7D0} = {EE709442-E77A-4C84-8CBA-522E04BECE53}
 		{548B700E-898F-4EA4-AE3D-62C43BE127F9} = {EE709442-E77A-4C84-8CBA-522E04BECE53}
