@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using StratmanMedia.Logging.Contracts;
 
-namespace StratmanMedia.Logging.DependencyInjection.Microsoft
+namespace StratmanMedia.Logging.DependencyInjection
 {
     internal static class ServiceRegistrar
     {
