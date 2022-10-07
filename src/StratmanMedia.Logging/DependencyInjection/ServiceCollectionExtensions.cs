@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace StratmanMedia.Logging.DependencyInjection.Microsoft
+namespace StratmanMedia.Logging.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
