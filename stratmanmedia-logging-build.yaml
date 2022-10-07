@@ -6,8 +6,6 @@ trigger:
   paths:
     include:
     - StratmanMedia.Logging
-    - StratmanMedia.Logging.Contracts
-    - StratmanMedia.Logging.DependencyInjection.Microsoft
 
 pool:
   vmImage: 'ubuntu-latest'
