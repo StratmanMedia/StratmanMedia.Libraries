@@ -1,9 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <BaseOutputPath>..\..\bin</BaseOutputPath>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>StratmanMedia.Auth</PackageId>
+    <Title>StratmanMedia.Auth</Title>
+    <Authors>Jason Stratman</Authors>
+    <Company>Stratman Media</Company>
+    <Description>Auth package for Stratman Media applications.</Description>
+    <PackageProjectUrl>https://github.com/StratmanMedia/StratmanMedia.Libraries</PackageProjectUrl>
+    <PackageIcon>parrot-small.png</PackageIcon>
+    <RepositoryUrl>https://github.com/StratmanMedia/StratmanMedia.Libraries</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Version>0.1.2-beta.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +36,13 @@
 
   <ItemGroup>
     <Folder Include="UserInfo\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Users\Jason\Stratman Media\Projects\Images\parrot-small.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
