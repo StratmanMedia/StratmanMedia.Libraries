@@ -39,7 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\..\Users\Jason\Stratman Media\Projects\Images\parrot-small.png">
+    <None Include="../../img/parrot-small.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
