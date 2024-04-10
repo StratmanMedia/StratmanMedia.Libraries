@@ -12,10 +12,10 @@
     <Company>Stratman Media</Company>
     <Description>Auth package for Stratman Media applications.</Description>
     <PackageProjectUrl>https://github.com/StratmanMedia/StratmanMedia.Libraries</PackageProjectUrl>
-    <PackageIcon>parrot-small.png</PackageIcon>
+    <PackageIcon>..\..\img\parrot-small.png</PackageIcon>
     <RepositoryUrl>https://github.com/StratmanMedia/StratmanMedia.Libraries</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>0.1.2-beta.1</Version>
+    <Version>0.1.2-beta.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,7 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="../../img/parrot-small.png">
+    <None Include="..\..\img\parrot-small.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
