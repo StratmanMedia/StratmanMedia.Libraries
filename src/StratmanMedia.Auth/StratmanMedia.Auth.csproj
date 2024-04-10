@@ -12,7 +12,7 @@
     <Company>Stratman Media</Company>
     <Description>Auth package for Stratman Media applications.</Description>
     <PackageProjectUrl>https://github.com/StratmanMedia/StratmanMedia.Libraries</PackageProjectUrl>
-    <PackageIcon>..\..\img\parrot-small.png</PackageIcon>
+    <PackageIcon>parrot-small.png</PackageIcon>
     <RepositoryUrl>https://github.com/StratmanMedia/StratmanMedia.Libraries</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Version>0.1.2-beta.2</Version>
@@ -39,10 +39,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\img\parrot-small.png">
+    <Content Include="..\..\img\parrot-small.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
-    </None>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ScopeHandler.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
 
 </Project>
