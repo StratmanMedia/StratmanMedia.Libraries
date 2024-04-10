@@ -1,13 +1,29 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <BaseOutputPath>..\..\bin</BaseOutputPath>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>StratmanMedia.Utilities</PackageId>
+    <Title>StratmanMedia.Utilities</Title>
+    <Authors>Jason Stratman</Authors>
+    <Company>Stratman Media</Company>
+    <Description>Utility package for Stratman Media applications.</Description>
+    <PackageProjectUrl>https://github.com/StratmanMedia/StratmanMedia.Libraries</PackageProjectUrl>
+    <PackageIcon>parrot-small.png</PackageIcon>
+    <RepositoryUrl>https://github.com/StratmanMedia/StratmanMedia.Libraries</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Version>0.1.1-beta.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Extensions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="parrot-small.png" Pack="True" Visible="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
