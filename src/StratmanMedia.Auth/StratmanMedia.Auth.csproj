@@ -15,7 +15,7 @@
     <PackageIcon>parrot-small.png</PackageIcon>
     <RepositoryUrl>https://github.com/StratmanMedia/StratmanMedia.Libraries</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>0.1.2-beta.3</Version>
+    <Version>0.1.2-beta.4</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,17 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="..\..\img\parrot-small.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="ScopeHandler.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
+    <None Include="parrot-small.png" Pack="True" Visible="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
