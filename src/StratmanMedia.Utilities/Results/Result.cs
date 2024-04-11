@@ -52,7 +52,7 @@ public class Result<T> : Result
 {
     public T? Data { get; init; }
 
-    public static Result<T> Success(T? data = default)
+    public static Result<T> Success(T data)
     {
         return new Result<T>
         {
@@ -60,7 +60,7 @@ public class Result<T> : Result
         };
     }
 
-    public static Result<T> Success(string correlationId, T? data = default)
+    public static Result<T> Success(string correlationId, T data)
     {
         return new Result<T>
         {
