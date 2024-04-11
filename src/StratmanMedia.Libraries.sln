@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.Auth", "Strat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{5BC3FB45-04D6-4F7B-A488-543F1000021B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratmanMedia.Utilities", "StratmanMedia.Utilities\StratmanMedia.Utilities.csproj", "{F8654704-D86C-4597-9B73-F07DFE36308A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratmanMedia.Utilities", "StratmanMedia.Utilities\StratmanMedia.Utilities.csproj", "{F8654704-D86C-4597-9B73-F07DFE36308A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratmanMedia.Utilities.Tests", "StratmanMedia.Utilities.Tests\StratmanMedia.Utilities.Tests.csproj", "{8882D4C2-7B05-441B-9FAA-F676940B1E90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{F8654704-D86C-4597-9B73-F07DFE36308A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8654704-D86C-4597-9B73-F07DFE36308A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8654704-D86C-4597-9B73-F07DFE36308A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8882D4C2-7B05-441B-9FAA-F676940B1E90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8882D4C2-7B05-441B-9FAA-F676940B1E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8882D4C2-7B05-441B-9FAA-F676940B1E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8882D4C2-7B05-441B-9FAA-F676940B1E90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{62A81DAE-EC82-4658-A0DE-2B28A868D94D} = {208556C5-9AEF-462F-BDD6-ABB8228CB6CF}
 		{7A85C1E6-CACC-4328-A14A-DB41A967931D} = {83561D53-FAA7-4DA0-B602-4F821474C019}
 		{F8654704-D86C-4597-9B73-F07DFE36308A} = {5BC3FB45-04D6-4F7B-A488-543F1000021B}
+		{8882D4C2-7B05-441B-9FAA-F676940B1E90} = {5BC3FB45-04D6-4F7B-A488-543F1000021B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C4689E03-FEA3-4F55-BC7C-6093C393E316}
