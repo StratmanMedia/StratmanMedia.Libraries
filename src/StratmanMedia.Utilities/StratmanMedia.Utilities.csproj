@@ -15,7 +15,7 @@
     <PackageIcon>parrot-small.png</PackageIcon>
     <RepositoryUrl>https://github.com/StratmanMedia/StratmanMedia.Libraries</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>0.1.2-beta.3</Version>
+    <Version>0.1.2-beta.4</Version>
   </PropertyGroup>
 
   <ItemGroup>
