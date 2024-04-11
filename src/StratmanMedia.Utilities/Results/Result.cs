@@ -16,7 +16,8 @@ public class Result
 
     public static Result Success(string correlationId)
     {
-        return new Result {
+        return new Result
+        {
             CorrelationId = correlationId
         };
     }
@@ -26,7 +27,7 @@ public class Result
         return new Result
         {
             Status = ResultStatus.Error,
-            ErrorMessages = new []{message}
+            ErrorMessages = new[] { message }
         };
     }
 
@@ -52,7 +53,14 @@ public class Result<T> : Result
 {
     public T? Data { get; init; }
 
-    public static Result<T> Success(T data)
+    protected Result() { }
+
+    public new static Result<T> Success()
+    {
+        return new Result<T>();
+    }
+
+    public static Result<T> Success(T? data)
     {
         return new Result<T>
         {
@@ -60,12 +68,45 @@ public class Result<T> : Result
         };
     }
 
-    public static Result<T> Success(string correlationId, T data)
+    public new static Result<T> Success(string correlationId)
     {
         return new Result<T>
         {
+            CorrelationId = correlationId
+        };
+    }
+
+    public static Result<T> Success(T? data, string correlationId)
+    {
+        return new Result<T> {
             Data = data,
             CorrelationId = correlationId
+        };
+    }
+
+    public new static Result<T> Error(string message)
+    {
+        return new Result<T>
+        {
+            Status = ResultStatus.Error,
+            ErrorMessages = new []{message}
+        };
+    }
+
+    public new static Result<T> Invalid(IEnumerable<string> messages)
+    {
+        return new Result<T>
+        {
+            Status = ResultStatus.Invalid,
+            ErrorMessages = messages
+        };
+    }
+
+    public new static Result<T> NotFound()
+    {
+        return new Result<T>
+        {
+            Status = ResultStatus.NotFound
         };
     }
 }
