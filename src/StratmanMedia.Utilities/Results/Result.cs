@@ -31,6 +31,15 @@ public class Result
         };
     }
 
+    public static Result Invalid(string message)
+    {
+        return new Result
+        {
+            Status = ResultStatus.Invalid,
+            ErrorMessages = new[] { message }
+        };
+    }
+
     public static Result Invalid(IEnumerable<string> messages)
     {
         return new Result
@@ -90,6 +99,15 @@ public class Result<T> : Result
         {
             Status = ResultStatus.Error,
             ErrorMessages = new []{message}
+        };
+    }
+
+    public new static Result<T> Invalid(string message)
+    {
+        return new Result<T>
+        {
+            Status = ResultStatus.Invalid,
+            ErrorMessages = new[] { message }
         };
     }
 
