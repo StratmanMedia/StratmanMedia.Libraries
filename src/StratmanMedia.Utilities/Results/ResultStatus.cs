@@ -5,5 +5,6 @@ public enum ResultStatus
     Success,
     Error,
     Invalid,
-    NotFound
+    NotFound,
+    Unauthorized
 }

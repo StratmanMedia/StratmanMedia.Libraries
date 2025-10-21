@@ -9,6 +9,7 @@ namespace StratmanMedia.Utilities.Tests
             var result01 = Result.Success();
             var result02 = Result.Success("correlationId");
             var result03 = Result.Error("Error message");
+            var result04a = Result.Invalid("Invalid error");
             var result04 = Result.Invalid(new[] { "Invalid error 1", "Invalid error 2" });
             var result05 = Result.NotFound();
             var result06 = Result<Foo>.Success();

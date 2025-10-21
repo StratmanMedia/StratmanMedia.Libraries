@@ -56,6 +56,14 @@ public class Result
             Status = ResultStatus.NotFound
         };
     }
+
+    public static Result Unauthorized()
+    {
+        return new Result
+        {
+            Status = ResultStatus.Unauthorized
+        };
+    }
 }
 
 public class Result<T> : Result
@@ -125,6 +133,14 @@ public class Result<T> : Result
         return new Result<T>
         {
             Status = ResultStatus.NotFound
+        };
+    }
+
+    public new static Result<T> Unauthorized()
+    {
+        return new Result<T>
+        {
+            Status = ResultStatus.Unauthorized
         };
     }
 }
