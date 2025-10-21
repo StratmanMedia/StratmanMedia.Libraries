@@ -1,0 +1,35 @@
+# Variable 'MajorVersion' was defined in the Variables tab
+# Variable 'MinorVersion' was defined in the Variables tab
+name: $(MajorVersion).$(MinorVersion).$(Year:yy)$(DayOfYear)$(Rev:rr)
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: windows-latest
+  steps:
+  - checkout: self
+    clean: true
+    fetchTags: false
+  - task: DotNetCoreCLI@2
+    displayName: dotnet restore
+    inputs:
+      command: restore
+      projects: '**/StratmanMedia.ResponseObjects/StratmanMedia.ResponseObjects.csproj'
+      feedRestore: b36bcbe5-3a78-46e0-a138-ffdd21530d53/6a37b12c-d48f-453f-b2e3-4a5f1f596bf8
+  - task: DotNetCoreCLI@2
+    displayName: dotnet build
+    inputs:
+      projects: '**/StratmanMedia.ResponseObjects/StratmanMedia.ResponseObjects.csproj'
+      arguments: --configuration $(BuildConfiguration)
+  - task: DotNetCoreCLI@2
+    displayName: dotnet pack
+    inputs:
+      command: pack
+      nobuild: true
+      versioningScheme: byBuildNumber
+  - task: DotNetCoreCLI@2
+    displayName: dotnet push
+    inputs:
+      command: push
+      feedPublish: b36bcbe5-3a78-46e0-a138-ffdd21530d53/6a37b12c-d48f-453f-b2e3-4a5f1f596bf8
+...
