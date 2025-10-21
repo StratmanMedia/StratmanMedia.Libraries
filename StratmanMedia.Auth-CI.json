@@ -1,0 +1,409 @@
+{
+  "options": [
+    {
+      "enabled": false,
+      "definition": {
+        "id": "5d58cc01-7c75-450c-be18-a388ddb129ec"
+      },
+      "inputs": {
+        "branchFilters": "[\"+refs/heads/*\"]",
+        "additionalFields": "{}"
+      }
+    },
+    {
+      "enabled": false,
+      "definition": {
+        "id": "a9db38f9-9fdc-478c-b0f9-464221e58316"
+      },
+      "inputs": {
+        "workItemType": "Issue",
+        "assignToRequestor": "true",
+        "additionalFields": "{}"
+      }
+    }
+  ],
+  "triggers": [
+    {
+      "branchFilters": [
+        "+master"
+      ],
+      "pathFilters": [
+        "+**/StratmanMedia.Auth"
+      ],
+      "batchChanges": false,
+      "maxConcurrentBuildsPerBranch": 1,
+      "pollingInterval": 0,
+      "triggerType": 2
+    }
+  ],
+  "variables": {
+    "system.debug": {
+      "value": "false",
+      "allowOverride": true
+    },
+    "BuildConfiguration": {
+      "value": "release"
+    },
+    "MajorVersion": {
+      "value": "0"
+    },
+    "MinorVersion": {
+      "value": "1"
+    },
+    "PatchVersion": {
+      "value": "1"
+    }
+  },
+  "properties": {},
+  "tags": [],
+  "_links": {
+    "self": {
+      "href": "https://dev.azure.com/stratmanmedia/b36bcbe5-3a78-46e0-a138-ffdd21530d53/_apis/build/Definitions/25?revision=2"
+    },
+    "web": {
+      "href": "https://dev.azure.com/stratmanmedia/b36bcbe5-3a78-46e0-a138-ffdd21530d53/_build/definition?definitionId=25"
+    },
+    "editor": {
+      "href": "https://dev.azure.com/stratmanmedia/b36bcbe5-3a78-46e0-a138-ffdd21530d53/_build/designer?id=25&_a=edit-build-definition"
+    },
+    "badge": {
+      "href": "https://dev.azure.com/stratmanmedia/b36bcbe5-3a78-46e0-a138-ffdd21530d53/_apis/build/status/25"
+    }
+  },
+  "buildNumberFormat": "$(MajorVersion).$(MinorVersion).$(PatchVersion).$(Year:yy)$(DayOfYear)$(Rev:rr)",
+  "jobAuthorizationScope": 2,
+  "jobTimeoutInMinutes": 60,
+  "jobCancelTimeoutInMinutes": 5,
+  "process": {
+    "phases": [
+      {
+        "steps": [
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "dotnet restore",
+            "timeoutInMinutes": 0,
+            "retryCountOnTaskFailure": 0,
+            "condition": "succeeded()",
+            "task": {
+              "id": "5541a522-603c-47ad-91fc-a4b1d163081b",
+              "versionSpec": "2.*",
+              "definitionType": "task"
+            },
+            "inputs": {
+              "command": "restore",
+              "publishWebProjects": "true",
+              "projects": "**/StratmanMedia.Auth/StratmanMedia.Auth.csproj",
+              "custom": "",
+              "arguments": "",
+              "restoreArguments": "",
+              "publishTestResults": "true",
+              "testRunTitle": "",
+              "zipAfterPublish": "true",
+              "modifyOutputPath": "true",
+              "selectOrConfig": "select",
+              "feedRestore": "b36bcbe5-3a78-46e0-a138-ffdd21530d53/6a37b12c-d48f-453f-b2e3-4a5f1f596bf8",
+              "includeNuGetOrg": "true",
+              "nugetConfigPath": "",
+              "externalEndpoints": "",
+              "noCache": "false",
+              "packagesDirectory": "",
+              "verbosityRestore": "Detailed",
+              "searchPatternPush": "$(Build.ArtifactStagingDirectory)/*.nupkg",
+              "nuGetFeedType": "internal",
+              "feedPublish": "",
+              "publishPackageMetadata": "true",
+              "externalEndpoint": "",
+              "searchPatternPack": "**/*.csproj",
+              "configurationToPack": "$(BuildConfiguration)",
+              "outputDir": "$(Build.ArtifactStagingDirectory)",
+              "nobuild": "false",
+              "includesymbols": "false",
+              "includesource": "false",
+              "versioningScheme": "off",
+              "versionEnvVar": "",
+              "requestedMajorVersion": "1",
+              "requestedMinorVersion": "0",
+              "requestedPatchVersion": "0",
+              "buildProperties": "",
+              "verbosityPack": "Detailed",
+              "workingDirectory": ""
+            }
+          },
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "dotnet build",
+            "timeoutInMinutes": 0,
+            "retryCountOnTaskFailure": 0,
+            "condition": "succeeded()",
+            "task": {
+              "id": "5541a522-603c-47ad-91fc-a4b1d163081b",
+              "versionSpec": "2.*",
+              "definitionType": "task"
+            },
+            "inputs": {
+              "command": "build",
+              "publishWebProjects": "true",
+              "projects": "**/StratmanMedia.Auth/StratmanMedia.Auth.csproj",
+              "custom": "",
+              "arguments": "--configuration $(BuildConfiguration)",
+              "restoreArguments": "",
+              "publishTestResults": "true",
+              "testRunTitle": "",
+              "zipAfterPublish": "true",
+              "modifyOutputPath": "true",
+              "selectOrConfig": "select",
+              "feedRestore": "",
+              "includeNuGetOrg": "true",
+              "nugetConfigPath": "",
+              "externalEndpoints": "",
+              "noCache": "false",
+              "packagesDirectory": "",
+              "verbosityRestore": "Detailed",
+              "searchPatternPush": "$(Build.ArtifactStagingDirectory)/*.nupkg",
+              "nuGetFeedType": "internal",
+              "feedPublish": "",
+              "publishPackageMetadata": "true",
+              "externalEndpoint": "",
+              "searchPatternPack": "**/*.csproj",
+              "configurationToPack": "$(BuildConfiguration)",
+              "outputDir": "$(Build.ArtifactStagingDirectory)",
+              "nobuild": "false",
+              "includesymbols": "false",
+              "includesource": "false",
+              "versioningScheme": "off",
+              "versionEnvVar": "",
+              "requestedMajorVersion": "1",
+              "requestedMinorVersion": "0",
+              "requestedPatchVersion": "0",
+              "buildProperties": "",
+              "verbosityPack": "Detailed",
+              "workingDirectory": ""
+            }
+          },
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "dotnet pack",
+            "timeoutInMinutes": 0,
+            "retryCountOnTaskFailure": 0,
+            "condition": "succeeded()",
+            "task": {
+              "id": "5541a522-603c-47ad-91fc-a4b1d163081b",
+              "versionSpec": "2.*",
+              "definitionType": "task"
+            },
+            "inputs": {
+              "command": "pack",
+              "publishWebProjects": "true",
+              "projects": "",
+              "custom": "",
+              "arguments": "",
+              "restoreArguments": "",
+              "publishTestResults": "true",
+              "testRunTitle": "",
+              "zipAfterPublish": "true",
+              "modifyOutputPath": "true",
+              "selectOrConfig": "select",
+              "feedRestore": "",
+              "includeNuGetOrg": "true",
+              "nugetConfigPath": "",
+              "externalEndpoints": "",
+              "noCache": "false",
+              "packagesDirectory": "",
+              "verbosityRestore": "Detailed",
+              "searchPatternPush": "$(Build.ArtifactStagingDirectory)/*.nupkg",
+              "nuGetFeedType": "internal",
+              "feedPublish": "",
+              "publishPackageMetadata": "true",
+              "externalEndpoint": "",
+              "searchPatternPack": "**/StratmanMedia.Auth/StratmanMedia.Auth.csproj",
+              "configurationToPack": "$(BuildConfiguration)",
+              "outputDir": "$(Build.ArtifactStagingDirectory)",
+              "nobuild": "true",
+              "includesymbols": "false",
+              "includesource": "false",
+              "versioningScheme": "byBuildNumber",
+              "versionEnvVar": "",
+              "requestedMajorVersion": "1",
+              "requestedMinorVersion": "0",
+              "requestedPatchVersion": "0",
+              "buildProperties": "",
+              "verbosityPack": "Detailed",
+              "workingDirectory": ""
+            }
+          },
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "dotnet push",
+            "timeoutInMinutes": 0,
+            "retryCountOnTaskFailure": 0,
+            "condition": "succeeded()",
+            "task": {
+              "id": "5541a522-603c-47ad-91fc-a4b1d163081b",
+              "versionSpec": "2.*",
+              "definitionType": "task"
+            },
+            "inputs": {
+              "command": "push",
+              "publishWebProjects": "true",
+              "projects": "",
+              "custom": "",
+              "arguments": "",
+              "restoreArguments": "",
+              "publishTestResults": "true",
+              "testRunTitle": "",
+              "zipAfterPublish": "true",
+              "modifyOutputPath": "true",
+              "selectOrConfig": "select",
+              "feedRestore": "",
+              "includeNuGetOrg": "true",
+              "nugetConfigPath": "",
+              "externalEndpoints": "",
+              "noCache": "false",
+              "packagesDirectory": "",
+              "verbosityRestore": "Detailed",
+              "searchPatternPush": "$(Build.ArtifactStagingDirectory)/*.nupkg",
+              "nuGetFeedType": "internal",
+              "feedPublish": "b36bcbe5-3a78-46e0-a138-ffdd21530d53/6a37b12c-d48f-453f-b2e3-4a5f1f596bf8",
+              "publishPackageMetadata": "true",
+              "externalEndpoint": "",
+              "searchPatternPack": "**/*.csproj",
+              "configurationToPack": "$(BuildConfiguration)",
+              "outputDir": "$(Build.ArtifactStagingDirectory)",
+              "nobuild": "false",
+              "includesymbols": "false",
+              "includesource": "false",
+              "versioningScheme": "off",
+              "versionEnvVar": "",
+              "requestedMajorVersion": "1",
+              "requestedMinorVersion": "0",
+              "requestedPatchVersion": "0",
+              "buildProperties": "",
+              "verbosityPack": "Detailed",
+              "workingDirectory": ""
+            }
+          }
+        ],
+        "name": "Agent job 1",
+        "refName": "Job_1",
+        "condition": "succeeded()",
+        "target": {
+          "executionOptions": {
+            "type": 0
+          },
+          "allowScriptsAuthAccessOption": false,
+          "type": 1
+        },
+        "jobAuthorizationScope": 2
+      }
+    ],
+    "target": {
+      "agentSpecification": {
+        "identifier": "windows-2019"
+      }
+    },
+    "type": 1
+  },
+  "repository": {
+    "properties": {
+      "apiUrl": "https://api.github.com/repos/StratmanMedia/StratmanMedia.Libraries",
+      "branchesUrl": "https://api.github.com/repos/StratmanMedia/StratmanMedia.Libraries/branches",
+      "cloneUrl": "https://github.com/StratmanMedia/StratmanMedia.Libraries.git",
+      "connectedServiceId": "72977254-6a91-4f4d-89b8-521abc7d1049",
+      "defaultBranch": "master",
+      "fullName": "StratmanMedia/StratmanMedia.Libraries",
+      "hasAdminPermissions": "True",
+      "isFork": "False",
+      "isPrivate": "False",
+      "lastUpdated": "01/08/2023 21:40:44",
+      "manageUrl": "https://github.com/StratmanMedia/StratmanMedia.Libraries",
+      "nodeId": "R_kgDOIKBBpg",
+      "ownerId": "94812462",
+      "orgName": "StratmanMedia",
+      "refsUrl": "https://api.github.com/repos/StratmanMedia/StratmanMedia.Libraries/git/refs",
+      "safeRepository": "StratmanMedia/StratmanMedia.Libraries",
+      "shortName": "StratmanMedia.Libraries",
+      "ownerAvatarUrl": "https://avatars.githubusercontent.com/u/94812462?v=4",
+      "archived": "False",
+      "externalId": "547373478",
+      "ownerIsAUser": "False",
+      "checkoutNestedSubmodules": "false",
+      "cleanOptions": "0",
+      "fetchDepth": "0",
+      "gitLfsSupport": "false",
+      "reportBuildStatus": "true",
+      "skipSyncSource": "false",
+      "fetchTags": "false",
+      "labelSourcesFormat": "$(build.buildNumber)",
+      "labelSources": "0"
+    },
+    "id": "StratmanMedia/StratmanMedia.Libraries",
+    "type": "GitHub",
+    "name": "StratmanMedia/StratmanMedia.Libraries",
+    "url": "https://github.com/StratmanMedia/StratmanMedia.Libraries.git",
+    "defaultBranch": "refs/heads/master",
+    "clean": "true",
+    "checkoutSubmodules": false
+  },
+  "processParameters": {},
+  "quality": 1,
+  "authoredBy": {
+    "displayName": "Jason Stratman",
+    "url": "https://spsprodcus4.vssps.visualstudio.com/A1a04afb5-296d-43be-991f-bab78f13cb74/_apis/Identities/ca61521b-ad31-671c-a8e6-46900b8d8402",
+    "_links": {
+      "avatar": {
+        "href": "https://dev.azure.com/stratmanmedia/_apis/GraphProfile/MemberAvatars/msa.Y2E2MTUyMWItYWQzMS03NzFjLWE4ZTYtNDY5MDBiOGQ4NDAy"
+      }
+    },
+    "id": "ca61521b-ad31-671c-a8e6-46900b8d8402",
+    "uniqueName": "jason@stratmanmedia.com",
+    "imageUrl": "https://dev.azure.com/stratmanmedia/_apis/GraphProfile/MemberAvatars/msa.Y2E2MTUyMWItYWQzMS03NzFjLWE4ZTYtNDY5MDBiOGQ4NDAy",
+    "descriptor": "msa.Y2E2MTUyMWItYWQzMS03NzFjLWE4ZTYtNDY5MDBiOGQ4NDAy"
+  },
+  "drafts": [],
+  "queue": {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/stratmanmedia/_apis/build/Queues/45"
+      }
+    },
+    "id": 45,
+    "name": "Azure Pipelines",
+    "url": "https://dev.azure.com/stratmanmedia/_apis/build/Queues/45",
+    "pool": {
+      "id": 9,
+      "name": "Azure Pipelines",
+      "isHosted": true
+    }
+  },
+  "id": 25,
+  "name": "StratmanMedia.Auth-CI",
+  "url": "https://dev.azure.com/stratmanmedia/b36bcbe5-3a78-46e0-a138-ffdd21530d53/_apis/build/Definitions/25?revision=2",
+  "uri": "vstfs:///Build/Definition/25",
+  "path": "\\",
+  "type": 2,
+  "queueStatus": 0,
+  "revision": 2,
+  "createdDate": "2023-08-13T22:08:33.940Z",
+  "project": {
+    "id": "b36bcbe5-3a78-46e0-a138-ffdd21530d53",
+    "name": "StratmanMedia",
+    "description": "Stratman Media",
+    "url": "https://dev.azure.com/stratmanmedia/_apis/projects/b36bcbe5-3a78-46e0-a138-ffdd21530d53",
+    "state": 1,
+    "revision": 43,
+    "visibility": 0,
+    "lastUpdateTime": "2021-10-08T13:44:49.663Z"
+  }
+}
