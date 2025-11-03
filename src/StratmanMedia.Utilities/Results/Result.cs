@@ -3,9 +3,9 @@
 public class Result
 {
     public ResultStatus Status = ResultStatus.Success;
-    public IEnumerable<string> ErrorMessages { get; init; } = Array.Empty<string>();
+    public IEnumerable<string> ErrorMessages { get; protected set; } = Array.Empty<string>();
     public bool IsSuccess => Status == ResultStatus.Success;
-    public string? CorrelationId { get; init; }
+    public string? CorrelationId { get; protected set; }
 
     protected Result() { }
 
@@ -68,7 +68,7 @@ public class Result
 
 public class Result<T> : Result
 {
-    public T? Data { get; init; }
+    public T? Data { get; private set; }
 
     protected Result() { }
 
